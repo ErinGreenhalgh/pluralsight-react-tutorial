@@ -4,7 +4,6 @@ import App from './components/App.jsx';
 import HomePage from './components/home/HomePage';
 import AboutPage from './components/about/AboutPage';
 import CoursesPage from './components/courses/CoursesPage.jsx';
-//index route references a root path we want to expose
 
 export default (
   <Route path="/" component={App}>

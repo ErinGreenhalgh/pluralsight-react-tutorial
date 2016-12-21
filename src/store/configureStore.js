@@ -1,4 +1,3 @@
- //create a function that configures the store that will be called at app's entry point
 import { createStore, applyMiddleware } from 'redux';
 import rootReducer from '../reducers';
 import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';

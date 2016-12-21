@@ -14,4 +14,3 @@ class HomePage extends React.Component  {
 }
 
 export default HomePage;
-//when someone else imports this file, they will get a reference to the HomePage class

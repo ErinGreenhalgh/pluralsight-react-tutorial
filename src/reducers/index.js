@@ -6,6 +6,3 @@ const rootReducer = combineReducers({
 });
 
 export default rootReducer;
-
-//we're defining an object courses: courses
-//ES6 shorthand property name
