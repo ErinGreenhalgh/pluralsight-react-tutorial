@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
-import App from './components/App.jsx';
+import App from './components/App.js';
 import HomePage from './components/home/HomePage';
 import AboutPage from './components/about/AboutPage';
-import CoursesPage from './components/courses/CoursesPage.jsx';
+import CoursesPage from './components/courses/CoursesPage.js';
 
 export default (
   <Route path="/" component={App}>

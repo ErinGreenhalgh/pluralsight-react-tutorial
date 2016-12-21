@@ -19,12 +19,18 @@ class CoursesPage extends React.Component {
   }
 
   onClickSave() {
-    this.props.dispatch(courseAcions.createCourse(this.state.course));
+    this.props.dispatch(courseActions.createCourse(this.state.course));
   }
+
+  courseRow(course, index) {
+    return <div key={index}>{ course.title }</div>;
+  }
+
   render() {
     return (
       <div>
         <h1>Courses</h1>
+        { this.props.courses.map(this.courseRow) }
         <h2>Add Course</h2>
         <input
           type="text"
@@ -43,6 +49,11 @@ function mapStateToProps(state, ownProps) {
   return {
     courses: state.courses
   };
+}
+
+CoursesPage.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  courses: PropTypes.array.isRequired
 }
 
 export default connect(mapStateToProps)(CoursesPage);
