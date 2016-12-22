@@ -15,7 +15,6 @@ class CoursesPage extends React.Component {
 
   render() {
     const {courses} = this.props;
-    //destructuring anything that you want to use can help keep things clean
     return (
       <div>
         <h1>Courses</h1>
@@ -34,11 +33,6 @@ function mapStateToProps(state, ownProps) {
 function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(courseActions, dispatch)
-    //bindActionCreators does the work of creating functions from the actions for you
-    //but it does so for every action in the file
-    //so it can no longer be called courses, now it's actions
-    //could also use bindActionCreators to create one, but it's nice to access all the actions in a
-    //predicatable way, always through this.props.actions
   };
 }
 
