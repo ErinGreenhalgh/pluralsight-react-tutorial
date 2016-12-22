@@ -41,7 +41,7 @@ function mapDispatchToProps(dispatch) {
 
 CoursesPage.propTypes = {
   actions: PropTypes.object.isRequired,
-  courses: PropTypes.array.isRequired,
+  courses: PropTypes.array.isRequired
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CoursesPage);
