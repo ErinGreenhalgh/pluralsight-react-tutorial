@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
-import {bindAtionCreators} from 'redux';
+import {bindActionCreators} from 'redux';
+import * as courseActions from '../../actions/courseActions';
 
 class ManageCoursePage extends React.Component {
   constructor(props, context) {
@@ -9,7 +10,7 @@ class ManageCoursePage extends React.Component {
 
   render() {
     return(
-
+      <h1>Managing Courses!</h1>
     );
   }
 }
@@ -26,7 +27,7 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(actions, dispatch)
+    actions: bindActionCreators(courseActions, dispatch)
   };
 }
 
