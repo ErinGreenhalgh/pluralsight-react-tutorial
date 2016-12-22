@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import * as courseActions from '../../actions/courseActions';
+import {bindActionCreators} from 'redux';
 
 class CoursesPage extends React.Component {
   constructor(props, context) {
@@ -19,7 +20,7 @@ class CoursesPage extends React.Component {
   }
 
   onClickSave() {
-    this.props.createCourse(this.state.course);
+    this.props.actions.createCourse(this.state.course);
   }
 
   courseRow(course, index) {
@@ -53,15 +54,18 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    createCourse: course => dispatch(courseActions.createCourse(course))
-    //wrapping the action in a call to dispatch here so it's easy to use above in the component
-    //when defining an array function, can omit parens when there is only one param
+    actions: bindActionCreators(courseActions, dispatch)
+    //bindActionCreators does the work of creating functions from the actions for you
+    //but it does so for every action in the file
+    //so it can no longer be called courses, now it's actions
+    //could also use bindActionCreators to create one, but it's nice to access all the actions in a
+    //predicatable way, always through this.props.actions
   };
 }
 
 CoursesPage.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-  courses: PropTypes.array.isRequired
+  actions: PropTypes.object.isRequired,
+  courses: PropTypes.array.isRequired,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CoursesPage);
