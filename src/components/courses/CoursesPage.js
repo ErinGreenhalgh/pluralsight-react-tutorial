@@ -19,7 +19,7 @@ class CoursesPage extends React.Component {
   }
 
   onClickSave() {
-    this.props.dispatch(courseActions.createCourse(this.state.course));
+    this.props.createCourse(this.state.course);
   }
 
   courseRow(course, index) {
@@ -51,9 +51,17 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
+function mapDispatchToProps(dispatch) {
+  return {
+    createCourse: course => dispatch(courseActions.createCourse(course))
+    //wrapping the action in a call to dispatch here so it's easy to use above in the component
+    //when defining an array function, can omit parens when there is only one param
+  };
+}
+
 CoursesPage.propTypes = {
   dispatch: PropTypes.func.isRequired,
   courses: PropTypes.array.isRequired
 }
 
-export default connect(mapStateToProps)(CoursesPage);
+export default connect(mapStateToProps, mapDispatchToProps)(CoursesPage);
