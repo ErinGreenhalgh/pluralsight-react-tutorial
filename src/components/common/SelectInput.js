@@ -25,7 +25,7 @@ const SelectInput = ({name, label, onChange, defaultOption, value, error, option
 SelectInput.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  // onChange: PropTypes.func.isRequired,
   defaultOption: PropTypes.string,
   value: PropTypes.string,
   error: PropTypes.string,
@@ -35,4 +35,4 @@ SelectInput.propTypes = {
 export default SelectInput;
 
 //see Cory House's regular react tutorial to see how these SelectInput and TextInput
-//components are made in detail 
+//components are made in detail
